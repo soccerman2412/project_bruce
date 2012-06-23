@@ -1,0 +1,428 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		012EE3461592D8ED007F1128 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 012EE3451592D8ED007F1128 /* UIKit.framework */; };
+		012EE3481592D8ED007F1128 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 012EE3471592D8ED007F1128 /* Foundation.framework */; };
+		012EE34A1592D8ED007F1128 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 012EE3491592D8ED007F1128 /* CoreGraphics.framework */; };
+		012EE3501592D8ED007F1128 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 012EE34E1592D8ED007F1128 /* InfoPlist.strings */; };
+		012EE3521592D8ED007F1128 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 012EE3511592D8ED007F1128 /* main.m */; };
+		012EE3561592D8ED007F1128 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 012EE3551592D8ED007F1128 /* AppDelegate.m */; };
+		012EE35E1592D8ED007F1128 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 012EE35D1592D8ED007F1128 /* SenTestingKit.framework */; };
+		012EE35F1592D8ED007F1128 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 012EE3451592D8ED007F1128 /* UIKit.framework */; };
+		012EE3601592D8ED007F1128 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 012EE3471592D8ED007F1128 /* Foundation.framework */; };
+		012EE3681592D8ED007F1128 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 012EE3661592D8ED007F1128 /* InfoPlist.strings */; };
+		012EE36B1592D8ED007F1128 /* MonsterSmashTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 012EE36A1592D8ED007F1128 /* MonsterSmashTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		012EE3611592D8ED007F1128 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 012EE3381592D8ED007F1128 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 012EE3401592D8ED007F1128;
+			remoteInfo = MonsterSmash;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		012EE3411592D8ED007F1128 /* MonsterSmash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonsterSmash.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		012EE3451592D8ED007F1128 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		012EE3471592D8ED007F1128 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		012EE3491592D8ED007F1128 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		012EE34D1592D8ED007F1128 /* MonsterSmash-Info.plist */ = {isa = PBXFileReference; path = "MonsterSmash-Info.plist"; sourceTree = "<group>"; };
+		012EE34F1592D8ED007F1128 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		012EE3511592D8ED007F1128 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		012EE3531592D8ED007F1128 /* MonsterSmash-Prefix.pch */ = {isa = PBXFileReference; path = "MonsterSmash-Prefix.pch"; sourceTree = "<group>"; };
+		012EE3541592D8ED007F1128 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		012EE3551592D8ED007F1128 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		012EE35C1592D8ED007F1128 /* MonsterSmashTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonsterSmashTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		012EE35D1592D8ED007F1128 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		012EE3651592D8ED007F1128 /* MonsterSmashTests-Info.plist */ = {isa = PBXFileReference; path = "MonsterSmashTests-Info.plist"; sourceTree = "<group>"; };
+		012EE3671592D8ED007F1128 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		012EE3691592D8ED007F1128 /* MonsterSmashTests.h */ = {isa = PBXFileReference; path = MonsterSmashTests.h; sourceTree = "<group>"; };
+		012EE36A1592D8ED007F1128 /* MonsterSmashTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonsterSmashTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		012EE33E1592D8ED007F1128 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				012EE3461592D8ED007F1128 /* UIKit.framework in Frameworks */,
+				012EE3481592D8ED007F1128 /* Foundation.framework in Frameworks */,
+				012EE34A1592D8ED007F1128 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		012EE3581592D8ED007F1128 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				012EE35E1592D8ED007F1128 /* SenTestingKit.framework in Frameworks */,
+				012EE35F1592D8ED007F1128 /* UIKit.framework in Frameworks */,
+				012EE3601592D8ED007F1128 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		012EE3361592D8ED007F1128 = {
+			isa = PBXGroup;
+			children = (
+				012EE34B1592D8ED007F1128 /* MonsterSmash */,
+				012EE3631592D8ED007F1128 /* MonsterSmashTests */,
+				012EE3441592D8ED007F1128 /* Frameworks */,
+				012EE3421592D8ED007F1128 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		012EE3421592D8ED007F1128 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				012EE3411592D8ED007F1128 /* MonsterSmash.app */,
+				012EE35C1592D8ED007F1128 /* MonsterSmashTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		012EE3441592D8ED007F1128 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				012EE3451592D8ED007F1128 /* UIKit.framework */,
+				012EE3471592D8ED007F1128 /* Foundation.framework */,
+				012EE3491592D8ED007F1128 /* CoreGraphics.framework */,
+				012EE35D1592D8ED007F1128 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		012EE34B1592D8ED007F1128 /* MonsterSmash */ = {
+			isa = PBXGroup;
+			children = (
+				012EE3541592D8ED007F1128 /* AppDelegate.h */,
+				012EE3551592D8ED007F1128 /* AppDelegate.m */,
+				012EE34C1592D8ED007F1128 /* Supporting Files */,
+			);
+			path = MonsterSmash;
+			sourceTree = "<group>";
+		};
+		012EE34C1592D8ED007F1128 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				012EE34D1592D8ED007F1128 /* MonsterSmash-Info.plist */,
+				012EE34E1592D8ED007F1128 /* InfoPlist.strings */,
+				012EE3511592D8ED007F1128 /* main.m */,
+				012EE3531592D8ED007F1128 /* MonsterSmash-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		012EE3631592D8ED007F1128 /* MonsterSmashTests */ = {
+			isa = PBXGroup;
+			children = (
+				012EE3691592D8ED007F1128 /* MonsterSmashTests.h */,
+				012EE36A1592D8ED007F1128 /* MonsterSmashTests.m */,
+				012EE3641592D8ED007F1128 /* Supporting Files */,
+			);
+			path = MonsterSmashTests;
+			sourceTree = "<group>";
+		};
+		012EE3641592D8ED007F1128 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				012EE3651592D8ED007F1128 /* MonsterSmashTests-Info.plist */,
+				012EE3661592D8ED007F1128 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		012EE3401592D8ED007F1128 /* MonsterSmash */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 012EE36E1592D8ED007F1128 /* Build configuration list for PBXNativeTarget "MonsterSmash" */;
+			buildPhases = (
+				012EE33D1592D8ED007F1128 /* Sources */,
+				012EE33E1592D8ED007F1128 /* Frameworks */,
+				012EE33F1592D8ED007F1128 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MonsterSmash;
+			productName = MonsterSmash;
+			productReference = 012EE3411592D8ED007F1128 /* MonsterSmash.app */;
+			productType = "com.apple.product-type.application";
+		};
+		012EE35B1592D8ED007F1128 /* MonsterSmashTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 012EE3711592D8ED007F1128 /* Build configuration list for PBXNativeTarget "MonsterSmashTests" */;
+			buildPhases = (
+				012EE3571592D8ED007F1128 /* Sources */,
+				012EE3581592D8ED007F1128 /* Frameworks */,
+				012EE3591592D8ED007F1128 /* Resources */,
+				012EE35A1592D8ED007F1128 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				012EE3621592D8ED007F1128 /* PBXTargetDependency */,
+			);
+			name = MonsterSmashTests;
+			productName = MonsterSmashTests;
+			productReference = 012EE35C1592D8ED007F1128 /* MonsterSmashTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		012EE3381592D8ED007F1128 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 012EE33B1592D8ED007F1128 /* Build configuration list for PBXProject "MonsterSmash" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 012EE3361592D8ED007F1128;
+			productRefGroup = 012EE3421592D8ED007F1128 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				012EE3401592D8ED007F1128 /* MonsterSmash */,
+				012EE35B1592D8ED007F1128 /* MonsterSmashTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		012EE33F1592D8ED007F1128 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				012EE3501592D8ED007F1128 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		012EE3591592D8ED007F1128 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				012EE3681592D8ED007F1128 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		012EE35A1592D8ED007F1128 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		012EE33D1592D8ED007F1128 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				012EE3521592D8ED007F1128 /* main.m in Sources */,
+				012EE3561592D8ED007F1128 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		012EE3571592D8ED007F1128 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				012EE36B1592D8ED007F1128 /* MonsterSmashTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		012EE3621592D8ED007F1128 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 012EE3401592D8ED007F1128 /* MonsterSmash */;
+			targetProxy = 012EE3611592D8ED007F1128 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		012EE34E1592D8ED007F1128 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				012EE34F1592D8ED007F1128 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		012EE3661592D8ED007F1128 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				012EE3671592D8ED007F1128 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		012EE36C1592D8ED007F1128 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		012EE36D1592D8ED007F1128 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		012EE36F1592D8ED007F1128 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MonsterSmash/MonsterSmash-Prefix.pch";
+				INFOPLIST_FILE = "MonsterSmash/MonsterSmash-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		012EE3701592D8ED007F1128 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MonsterSmash/MonsterSmash-Prefix.pch";
+				INFOPLIST_FILE = "MonsterSmash/MonsterSmash-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		012EE3721592D8ED007F1128 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MonsterSmash.app/MonsterSmash";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MonsterSmash/MonsterSmash-Prefix.pch";
+				INFOPLIST_FILE = "MonsterSmashTests/MonsterSmashTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		012EE3731592D8ED007F1128 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MonsterSmash.app/MonsterSmash";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MonsterSmash/MonsterSmash-Prefix.pch";
+				INFOPLIST_FILE = "MonsterSmashTests/MonsterSmashTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		012EE33B1592D8ED007F1128 /* Build configuration list for PBXProject "MonsterSmash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				012EE36C1592D8ED007F1128 /* Debug */,
+				012EE36D1592D8ED007F1128 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		012EE36E1592D8ED007F1128 /* Build configuration list for PBXNativeTarget "MonsterSmash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				012EE36F1592D8ED007F1128 /* Debug */,
+				012EE3701592D8ED007F1128 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		012EE3711592D8ED007F1128 /* Build configuration list for PBXNativeTarget "MonsterSmashTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				012EE3721592D8ED007F1128 /* Debug */,
+				012EE3731592D8ED007F1128 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 012EE3381592D8ED007F1128 /* Project object */;
+}
