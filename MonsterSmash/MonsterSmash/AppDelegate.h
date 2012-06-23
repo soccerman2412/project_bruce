@@ -7,9 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+/*#import "SettingsManager.h"
+#import "LocalyticsSession.h"
+#import "GameCenter.h"
+#import "IAPManager.h"
+#import "SimpleAudioEngine.h"*/
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@class RootViewController;
 
-@property (strong, nonatomic) UIWindow *window;
+@interface AppDelegate : NSObject <UIApplicationDelegate> {
+	UIWindow			*window;
+	RootViewController	*viewController;
+}
+
+@property (nonatomic, retain) UIWindow *window;
+@property (nonatomic, readonly) RootViewController *viewController;
 
 @end

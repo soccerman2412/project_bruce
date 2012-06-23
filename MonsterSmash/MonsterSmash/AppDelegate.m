@@ -6,46 +6,225 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "cocos2d.h"
+
 #import "AppDelegate.h"
+#import "GameConfig.h"
+#import "RootViewController.h"
+#import "SettingsManager.h"
+//#import "PromoManager.h"
+#import "ChartBoost.h"
+#import "SessionMWrapper.h"
 
 @implementation AppDelegate
 
-@synthesize window = _window;
+@synthesize window, viewController;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (void) removeStartupFlicker
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    return YES;
+	//
+	// THIS CODE REMOVES THE STARTUP FLICKER
+	//
+	// Uncomment the following code if you Application only supports landscape mode
+	//
+#if GAME_AUTOROTATION == kGameAutorotationUIViewController
+	
+    CC_ENABLE_DEFAULT_GL_STATES();
+    CCDirector *director = [CCDirector sharedDirector];
+    CGSize size = [director winSize];
+    CCSprite *sprite = [CCSprite spriteWithFile:@"Default.png"];
+    sprite.position = ccp(size.width/2, size.height/2);
+    sprite.rotation = -90;
+    [sprite visit];
+    [[director openGLView] swapBuffers];
+    CC_ENABLE_DEFAULT_GL_STATES();
+	
+#endif // GAME_AUTOROTATION == kGameAutorotationUIViewController	
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application
+- (void) applicationDidFinishLaunching:(UIApplication*)application
+
 {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+	// make sure audio engine is set up
+	/*[SimpleAudioEngine sharedEngine];
+    // attempt to connect to game center if available
+	[GameCenter sharedSingleton];
+	// attempt to get IAP
+	[IAPManager sharedSingleton];*/
+	// load saved game data
+	[[SettingsManager sharedSingleton] loadFromFile:@"player.plist"];
+	// load SessionM queue. also, start SessionM!
+	[[SessionMWrapper sharedSingleton] loadQueue];
+	
+	// seed the random number generator
+	srandom(time(NULL));
+	
+	// Init the window
+	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	
+	// Try to use CADisplayLink director
+	// if it fails (SDK < 3.1) use the default director
+	if( ! [CCDirector setDirectorType:kCCDirectorTypeDisplayLink] )
+		[CCDirector setDirectorType:kCCDirectorTypeDefault];
+	
+	
+	CCDirector *director = [CCDirector sharedDirector];
+	
+	// Init the View Controller
+	viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
+	viewController.wantsFullScreenLayout = YES;
+	
+	//
+	// Create the EAGLView manually
+	//  1. Create a RGB565 format. Alternative: RGBA8
+	//	2. depth format of 0 bit. Use 16 or 24 bit for 3d effects, like CCPageTurnTransition
+	//
+	//
+	EAGLView *glView = [EAGLView viewWithFrame:[window bounds]
+								   pixelFormat:kEAGLColorFormatRGB565	// kEAGLColorFormatRGBA8
+								   depthFormat:0						// GL_DEPTH_COMPONENT16_OES
+						];
+	
+	// attach the openglView to the director
+	[director setOpenGLView:glView];
+	// enable multi-touch
+	[glView setMultipleTouchEnabled:YES];
+	
+    //	// Enables High Res mode (Retina Display) on iPhone 4 and maintains low res on all other devices
+    //	if( ! [director enableRetinaDisplay:YES] )
+    //		CCLOG(@"Retina Display Not supported");
+	
+	//
+	// VERY IMPORTANT:
+	// If the rotation is going to be controlled by a UIViewController
+	// then the device orientation should be "Portrait".
+	//
+	// IMPORTANT:
+	// By default, this template only supports Landscape orientations.
+	// Edit the RootViewController.m file to edit the supported orientations.
+	//
+#if GAME_AUTOROTATION == kGameAutorotationUIViewController
+	[director setDeviceOrientation:kCCDeviceOrientationPortrait];
+#else
+	[director setDeviceOrientation:kCCDeviceOrientationLandscapeLeft];
+#endif
+	
+	[director setAnimationInterval:1.0/60];
+	//[director setDisplayFPS:YES];
+	
+	
+	// make the OpenGLView a child of the view controller
+	[viewController setView:glView];
+	
+	// make the View Controller a child of the main window
+	[window addSubview: viewController.view];
+	
+	[window makeKeyAndVisible];
+	
+	// Default texture format for PNG/BMP/TIFF/JPEG/GIF images
+	// It can be RGBA8888, RGBA4444, RGB5_A1, RGB565
+	// You can change anytime.
+	[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA4444];
+	
+	// Removes the startup flicker
+	[self removeStartupFlicker];
+	
+	// Run the intro Scene
+	/*[[CCDirector sharedDirector] runWithScene:[BBGameLayer scene]];
+	
+	// Override point for customization after application launch.
+	[[LocalyticsSession sharedLocalyticsSession] startSession:@"7f34f42eb738225af85f165-2d1da334-6f9f-11e1-200b-00a68a4c01fc"];*/
+	
+	// Configure ChartBoost
+    ChartBoost *cb = [ChartBoost sharedChartBoost];
+    cb.appId = @"4f98d76ef77659e64f000023";
+    cb.appSignature = @"9d0624026bada35dc30be246e209880b0848f681";
+    
+    // Notify the beginning of a user session
+    [cb startSession];
+    
+    // Show an interstitial
+    [cb showInterstitial];
+	
+	self.window.rootViewController = viewController;
+	[self.window makeKeyAndVisible];
+    
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+	[self applicationDidFinishLaunching:application];
+    
+	return YES;
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+- (void)applicationWillResignActive:(UIApplication *)application {
+	// save sessionM queue
+	[[SessionMWrapper sharedSingleton] saveQueue];
+	// save game data first
+	[[SettingsManager sharedSingleton] saveToFile:@"player.plist"];
+	
+	[[CCDirector sharedDirector].runningScene onExit];
+	[[CCDirector sharedDirector] pause];
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+	[[CCDirector sharedDirector] resume];
+	//[[PromoManager sharedSingleton] resume];
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
+	[[CCDirector sharedDirector] purgeCachedData];
+	[[CCTextureCache sharedTextureCache] removeUnusedTextures];
+}
+
+-(void) applicationDidEnterBackground:(UIApplication*)application {
+	[[CCDirector sharedDirector] stopAnimation];
+    
+    /*[[LocalyticsSession sharedLocalyticsSession] close];
+    [[LocalyticsSession sharedLocalyticsSession] upload];*/
+}
+
+-(void) applicationWillEnterForeground:(UIApplication*)application {
+	[[CCDirector sharedDirector] startAnimation];
+	[[CCDirector sharedDirector].runningScene onEnter];
+	
+	// let everything know that the game is pausing
+	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavPauseNotification object:nil]];
+    
+    /*[[LocalyticsSession sharedLocalyticsSession] resume];
+    [[LocalyticsSession sharedLocalyticsSession] upload];*/
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+	// save sessionM queue
+	[[SessionMWrapper sharedSingleton] saveQueue];
+	// save game data first
+	[[SettingsManager sharedSingleton] saveToFile:@"player.plist"];
+    
+	
+	CCDirector *director = [CCDirector sharedDirector];
+	
+	[[director openGLView] removeFromSuperview];
+	
+	[viewController release];
+	
+	[window release];
+	
+	[director end];	
+    
+    // Close Localytics Session
+    /*[[LocalyticsSession sharedLocalyticsSession] close];
+    [[LocalyticsSession sharedLocalyticsSession] upload];*/
+}
+
+- (void)applicationSignificantTimeChange:(UIApplication *)application {
+	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
+}
+
+- (void)dealloc {
+	[[CCDirector sharedDirector] end];
+	[window release];
+	[super dealloc];
 }
 
 @end
