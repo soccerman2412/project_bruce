@@ -30,7 +30,7 @@
 		eventQueue = [NSMutableArray new];
 		[SessionM config].orientation = SessionM_UIDisplayLandscape;
 		[SessionM setDelegate:self];
-		[SessionM initWithApplicationId:@"aacd562506d9942e340a244642bd929091de99f4"];
+		[SessionM initWithApplicationId:@"d1d17f9e4cfbb4863cf50fbec00825ae962c0eee"];
 		
 		// listen for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemPurchased) name:kNavBuyItemNotification object:nil];

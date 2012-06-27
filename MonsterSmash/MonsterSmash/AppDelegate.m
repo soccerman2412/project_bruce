@@ -137,8 +137,8 @@
 	
 	// Configure ChartBoost
     ChartBoost *cb = [ChartBoost sharedChartBoost];
-    cb.appId = @"4f98d76ef77659e64f000023";
-    cb.appSignature = @"9d0624026bada35dc30be246e209880b0848f681";
+    cb.appId = @"4fea973af77659962500000d";
+    cb.appSignature = @"443c25527c26bd6611f6ec6c52169d0d0eb16459";
     
     // Notify the beginning of a user session
     [cb startSession];
